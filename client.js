@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const API_URL = 'http://localhost:3000/next';
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -11,5 +12,11 @@ form.addEventListener('submit', (event) => {
     content
   };
 
-  console.log(mew);
-})
+  fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify(mew),
+    headers: {
+      'content-type': 'application/json'
+    }
+  });
+});
